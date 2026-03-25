@@ -163,6 +163,10 @@ h1 {
   line-height: 1.6;
 }
 
+.section--stats {
+  margin-top: 14px;
+}
+
 .grid {
   display: grid;
   gap: 16px;
@@ -252,6 +256,13 @@ h1 {
   font-size: 1.35rem;
   font-weight: 800;
   color: var(--brand-2);
+}
+
+.metric__sub {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .link-card {
