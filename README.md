@@ -2,20 +2,60 @@
 
 ReuseAI helps you stop paying full inference cost for repeated LLM requests.
 
-This repository hosts the public product site for ReuseAI, the request-level
+This repository hosts the public product site for ReuseAI, a request-level
 response cache / reuse system for repeat-heavy LLM traffic.
 
 ## What it is
 
-- A proxy-first cache / replay layer in front of an existing LLM backend
-- A way to avoid recomputing identical requests
-- A simple self-hosted entry point for Ollama, vLLM, or OpenAI-compatible APIs
+A proxy-first cache / replay layer in front of your existing LLM backend
+(Ollama, vLLM, or OpenAI-compatible APIs).
+
+No model changes. No retraining. No kernel work.
+
+## Results on repeat-heavy workloads
+
+- Customer support templates: **66.67% hit ratio**, **+660.95% TPS**, **-86.91% TTFT**
+- API parameterized requests: **50.00% hit ratio**, **+98.11% TPS**, **-49.56% TTFT**
+- Structured prompts with variables: **25.00% hit ratio**, **+35.36% TPS**, **-26.27% TTFT**
+
+## Quickstart
+
+1. Install Docker.
+2. Start the proxy:
+
+   ```bash
+   docker run --rm -p 8080:8080 --env-file .env reuseai-response-cache-proxy
+   ```
+
+3. Point your client or API gateway to:
+
+   ```text
+   http://localhost:8080
+   ```
+
+4. Set your upstream backend in `.env`:
+
+   ```text
+   UPSTREAM_BASE_URL=http://host.docker.internal:11434
+   ```
 
 ## Best fit
 
 - Support / ops tools
 - Private API inference services
 - Workflow / agent systems with repeated prompts
+
+## When it works best
+
+- Repeat-heavy traffic
+- Template-based requests
+- Retry-heavy API workloads
+
+## When it does not
+
+- Fully random chat
+- Highly variable prompts
+- Workloads with little or no repetition
 
 ## Public links
 
