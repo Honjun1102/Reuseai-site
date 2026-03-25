@@ -1,12 +1,21 @@
 # ReuseAI Site
 
-This is the public product site for ReuseAI, the response cache / reuse system.
+ReuseAI helps you stop paying full inference cost for repeated LLM requests.
 
-## What lives here
+This repository hosts the public product site for ReuseAI, the request-level
+response cache / reuse system for repeat-heavy LLM traffic.
 
-- `index.html`: public landing page
-- `styles.css`: page styling
-- `site_public/`: static site source used for GitHub Pages
+## What it is
+
+- A proxy-first cache / replay layer in front of an existing LLM backend
+- A way to avoid recomputing identical requests
+- A simple self-hosted entry point for Ollama, vLLM, or OpenAI-compatible APIs
+
+## Best fit
+
+- Support / ops tools
+- Private API inference services
+- Workflow / agent systems with repeated prompts
 
 ## Public links
 
@@ -15,4 +24,4 @@ This is the public product site for ReuseAI, the response cache / reuse system.
 
 ## Pages
 
-This repository is intended to be published with GitHub Pages from the `main` branch root.
+This repository is published from the `main` branch root with GitHub Pages.
