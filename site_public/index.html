@@ -4,7 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Response Cache / Reuse System for repeat-heavy LLM workloads. A proxy-first request cache that reduces repeat inference cost and improves TTFT, throughput, and token cost." />
-  <title>Response Cache / Reuse System</title>
+  <meta name="author" content="Honjun" />
+  <meta name="keywords" content="LLM, AI, inference, cache, proxy, Ollama, vLLM, API optimization" />
+  
+  <meta property="og:title" content="Response Cache / Reuse System for LLMs" />
+  <meta property="og:description" content="Lower token cost, reduce TTFT, and keep throughput high without changing the model." />
+  <meta property="og:type" content="website" />
+  
+  <title>Response Cache / Reuse System | LLM Inference Optimization</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -177,7 +184,7 @@
         </article>
         <article class="panel panel--accent">
           <p class="mono">
-            Client → response cache proxy → Ollama / vLLM / PyTorch-backed API
+            Client &rarr; response cache proxy &rarr; Ollama / vLLM / PyTorch-backed API
           </p>
           <p>
             This is an inference-side compute avoidance layer, not a model rewrite or kernel optimization project.
@@ -193,18 +200,24 @@
       </div>
       <div class="grid grid--2">
         <article class="panel">
-          <p>Email us with your workload details. This keeps the site fully static and easy to review.</p>
-          <p class="mono">honjun@tju.edu.cn</p>
-          <a
-            class="btn btn--primary"
-            href="mailto:honjun@tju.edu.cn?subject=Early%20access%20request%20for%20Response%20Cache%20%2F%20Reuse%20System&body=Tell%20us%20about%20your%20repeat-heavy%20workload%2C%20expected%20hit%20patterns%2C%20and%20deployment%20environment."
-          >
-            Email us
-          </a>
+          <p>Reach out directly via email at <a href="mailto:honjun@tju.edu.cn" style="font-weight: bold; text-decoration: underline;">honjun@tju.edu.cn</a>, or open a GitHub issue with your workload details.</p>
+          
+          <form class="contact-form" action="https://github.com/Honjun1102/reuseai-site/issues/new" method="get" target="_blank" rel="noreferrer">
+            <input type="hidden" name="labels" value="early-access" />
+            <div class="form-group">
+              <label for="issue-title">Title</label>
+              <input type="text" id="issue-title" name="title" value="Early access request for Response Cache / Reuse System" />
+            </div>
+            <div class="form-group">
+              <label for="issue-body">Use case</label>
+              <textarea id="issue-body" name="body" rows="5" placeholder="Tell us about your repeat-heavy workload, expected hit patterns, and deployment environment."></textarea>
+            </div>
+            <button class="btn btn--primary" type="submit">Open GitHub issue</button>
+          </form>
         </article>
         <article class="panel panel--accent">
           <p class="section__note">No backend required.</p>
-          <p>We respond by email. If you prefer, reference the benchmark or docs page that matches your use case.</p>
+          <p>We respond through Email or GitHub Issues. If you prefer, leave a comment on the relevant benchmark or docs file.</p>
         </article>
       </div>
     </section>
@@ -233,7 +246,7 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <p>Response Cache / Reuse System.</p>
+      <p>Response Cache / Reuse System. Engineered by <a href="mailto:honjun@tju.edu.cn">honjun@tju.edu.cn</a></p>
       <p class="footer__small">Public launch page for Honjun1102/ReuseAI on GitHub Pages.</p>
     </div>
   </footer>
