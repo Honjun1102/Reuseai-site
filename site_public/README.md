@@ -20,11 +20,11 @@ The workflow copies `site_public/` into a Pages artifact and deploys it.
 
 Current public repo:
 
-- https://github.com/Honjun1102/ReuseAI
+- https://github.com/Honjun1102/Reuseai-site
 
 Current public landing page:
 
-- https://honjun1102.github.io/ReuseAI/
+- https://honjun1102.github.io/Reuseai-site/
 
 ## Local preview
 

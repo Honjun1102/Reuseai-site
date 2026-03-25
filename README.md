@@ -10,8 +10,8 @@ This is the public product site for ReuseAI, the response cache / reuse system.
 
 ## Public links
 
-- Public landing page: https://honjun1102.github.io/reuseai-site/
-- Public repository: https://github.com/Honjun1102/reuseai-site
+- Public landing page: https://honjun1102.github.io/Reuseai-site/
+- Public repository: https://github.com/Honjun1102/Reuseai-site
 
 ## Pages
 
