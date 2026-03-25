@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Response Cache / Reuse System for repeat-heavy LLM workloads. A proxy-first request cache that reduces repeat inference cost and improves TTFT, throughput, and token cost." />
+  <title>Response Cache / Reuse System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <div class="eyebrow">LLM inference-side compute avoidance</div>
+      <h1>Response Cache / Reuse System</h1>
+      <p class="hero__lede">
+        A request-level cache / replay layer for repeat-heavy LLM traffic. Lower token cost, reduce TTFT,
+        and keep throughput high without changing the model.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact">Get early access</a>
+        <a class="btn btn--ghost" href="#results">See results</a>
+      </div>
+      <div class="hero__meta">
+        <span>Proxy-first</span>
+        <span>No model changes</span>
+        <span>Self-hosted</span>
+        <span>Exact-match reuse</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="section" id="problem">
+      <div class="section__heading">
+        <span class="section__eyebrow">Problem</span>
+        <h2>Repeat requests still pay full inference cost.</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="panel">
+          <p>
+            Support macros, API retries, parameterized requests, and workflow prompts repeat constantly.
+            Every duplicate request burns tokens, adds latency, and consumes backend capacity.
+          </p>
+        </article>
+        <article class="panel panel--accent">
+          <ul class="checklist">
+            <li>Exact-match replay avoids re-running the same request.</li>
+            <li>Cache eligibility keeps behavior predictable.</li>
+            <li>Private API and workflow traffic show the clearest reuse patterns.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="solution">
+      <div class="section__heading">
+        <span class="section__eyebrow">Solution</span>
+        <h2>Drop-in request-level cache / replay / reuse.</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="feature">
+          <h3>Fingerprint</h3>
+          <p>Build an exact-match cache key from model, prompt, system prompt, and request params.</p>
+        </article>
+        <article class="feature">
+          <h3>Replay</h3>
+          <p>Return cached responses immediately when the same request repeats.</p>
+        </article>
+        <article class="feature">
+          <h3>Eligibility</h3>
+          <p>Use cacheability policy, TTL, and invalidation to keep behavior predictable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section__heading">
+        <span class="section__eyebrow">Results</span>
+        <h2>Repeat-heavy workloads show strong reuse.</h2>
+      </div>
+      <div class="results-grid">
+        <article class="result-card">
+          <div class="result-card__title">Customer support template</div>
+          <div class="metric-row">
+            <div class="metric">
+              <span class="metric__label">Hit ratio</span>
+              <span class="metric__value">66.67%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">TPS uplift</span>
+              <span class="metric__value">+660.95%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">TTFT improvement</span>
+              <span class="metric__value">-86.91%</span>
+            </div>
+          </div>
+          <p class="result-card__note">Best fit for support ops and ticket triage.</p>
+        </article>
+
+        <article class="result-card">
+          <div class="result-card__title">API parameterized request</div>
+          <div class="metric-row">
+            <div class="metric">
+              <span class="metric__label">Hit ratio</span>
+              <span class="metric__value">50.00%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">TPS uplift</span>
+              <span class="metric__value">+98.11%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">TTFT improvement</span>
+              <span class="metric__value">-49.56%</span>
+            </div>
+          </div>
+          <p class="result-card__note">Best fit for private API services and retry-heavy flows.</p>
+        </article>
+
+        <article class="result-card">
+          <div class="result-card__title">Structured prompt + variables</div>
+          <div class="metric-row">
+            <div class="metric">
+              <span class="metric__label">Hit ratio</span>
+              <span class="metric__value">25.00%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">TPS uplift</span>
+              <span class="metric__value">+35.36%</span>
+            </div>
+            <div class="metric">
+              <span class="metric__label">TTFT improvement</span>
+              <span class="metric__value">-26.27%</span>
+            </div>
+          </div>
+          <p class="result-card__note">Best fit for workflow/orchestration systems with stable prompts.</p>
+        </article>
+      </div>
+      <p class="section__note">
+        The same pattern holds under long-context serving: more repeated structure means more cache value.
+      </p>
+    </section>
+
+    <section class="section" id="users">
+      <div class="section__heading">
+        <span class="section__eyebrow">Best-fit users</span>
+        <h2>Who gets the first ROI.</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="persona">
+          <h3>Support / ops</h3>
+          <p>Recurring ticket macros and triage flows with high prompt repetition.</p>
+        </article>
+        <article class="persona">
+          <h3>Private API teams</h3>
+          <p>Parameter-heavy endpoints, retries, and workflow calls that repeat across bursts.</p>
+        </article>
+        <article class="persona persona--primary">
+          <h3>Workflow / orchestration</h3>
+          <p>The best initial customer: repeated subprompts, retries, and scaffolded agent workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="deployment">
+      <div class="section__heading">
+        <span class="section__eyebrow">Deployment</span>
+        <h2>Proxy-first, self-hosted, no model changes.</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="panel">
+          <ul class="checklist">
+            <li>Standalone proxy in front of Ollama-compatible inference services.</li>
+            <li>Minimal config integration: backend URL, model, TTL.</li>
+            <li>Exact-match cache, replay, TTL, invalidation, and metrics included.</li>
+          </ul>
+        </article>
+        <article class="panel panel--accent">
+          <p class="mono">
+            Client → response cache proxy → Ollama / vLLM / PyTorch-backed API
+          </p>
+          <p>
+            This is an inference-side compute avoidance layer, not a model rewrite or kernel optimization project.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section__heading">
+        <span class="section__eyebrow">Contact</span>
+        <h2>Get early access.</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="panel">
+          <p>Open a GitHub issue with your workload details. This keeps the site fully static and easy to review.</p>
+          <form class="contact-form" action="https://github.com/Honjun1102/reuseai-site/issues/new" method="get" target="_blank" rel="noreferrer">
+            <input type="hidden" name="labels" value="early-access" />
+            <label>
+              Title
+              <input type="text" name="title" value="Early access request for Response Cache / Reuse System" />
+            </label>
+            <label>
+              Use case
+              <textarea name="body" rows="5" placeholder="Tell us about your repeat-heavy workload, expected hit patterns, and deployment environment."></textarea>
+            </label>
+            <button class="btn btn--primary" type="submit">Open GitHub issue</button>
+          </form>
+        </article>
+        <article class="panel panel--accent">
+          <p class="section__note">No backend required.</p>
+          <p>We respond through GitHub Issues. If you prefer, leave a comment on the relevant benchmark or docs file.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="section__heading">
+        <span class="section__eyebrow">Links</span>
+        <h2>Reference material.</h2>
+      </div>
+      <div class="grid grid--3">
+        <a class="link-card" href="https://github.com/Honjun1102/reuseai-site" target="_blank" rel="noreferrer">
+          <span class="link-card__label">GitHub repo</span>
+          <span class="link-card__text">Source code, experiments, and implementation details.</span>
+        </a>
+        <a class="link-card" href="site_public/README.md" target="_blank" rel="noreferrer">
+          <span class="link-card__label">Site notes</span>
+          <span class="link-card__text">Static site layout and publishing notes.</span>
+        </a>
+        <a class="link-card" href="https://github.com/Honjun1102/reuseai-site#results" target="_blank" rel="noreferrer">
+          <span class="link-card__label">Benchmark / results</span>
+          <span class="link-card__text">Measured workload outcomes and ROI signals.</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>Response Cache / Reuse System.</p>
+      <p class="footer__small">Public launch page for Honjun1102/ReuseAI on GitHub Pages.</p>
+    </div>
+  </footer>
+</body>
+</html>
