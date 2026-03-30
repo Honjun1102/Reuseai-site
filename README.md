@@ -47,6 +47,14 @@ broader rollout is worth it.
 
 For pilot inquiries: honjun@tju.edu.cn
 
+## Apply for a Pilot
+
+If you want to test ReuseAI on one real service or workflow, apply here:
+
+https://docs.google.com/forms/d/e/1FAIpQLSf8oMa2Tu9BERHmj2BPpcW3IC0X3e8cQDPGLPkLi2eGYU-Hkw/viewform
+
+You can also reach out directly: honjun@tju.edu.cn
+
 ## Best fit
 
 - Support / ops tools
