@@ -163,6 +163,10 @@ h1 {
   line-height: 1.6;
 }
 
+.section--stats {
+  margin-top: 12px;
+}
+
 .grid {
   display: grid;
   gap: 16px;
@@ -174,6 +178,10 @@ h1 {
 
 .grid--3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .panel,
@@ -254,6 +262,13 @@ h1 {
   color: var(--brand-2);
 }
 
+.metric__sub {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .link-card {
   display: block;
   text-decoration: none;
@@ -284,6 +299,16 @@ h1 {
 
 .mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.mono--block {
+  display: block;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  overflow-x: auto;
 }
 
 .contact-form {
@@ -337,6 +362,7 @@ h1 {
 @media (max-width: 920px) {
   .grid--2,
   .grid--3,
+  .grid--4,
   .metric-row {
     grid-template-columns: 1fr;
   }

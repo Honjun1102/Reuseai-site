@@ -18,20 +18,22 @@
   <header class="hero">
     <div class="hero__inner">
       <div class="eyebrow">LLM inference-side compute avoidance</div>
-      <h1>Stop Paying for Repeated LLM Requests</h1>
+      <h1>Cut repeated LLM inference waste before rebuilding your stack</h1>
       <p class="hero__lede">
-        Save 30–60% of your LLM inference cost by avoiding duplicate requests.
-        ReuseAI is a drop-in proxy that caches repeated requests and returns them instantly.
+        ReuseAI is a proxy-first reuse layer for repeat-heavy LLM traffic. It helps teams test whether repeated
+        requests can be reused to reduce latency, improve throughput, and avoid unnecessary inference cost without
+        changing models, retraining, or rewriting the whole application.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="#contact">Get early access</a>
-        <a class="btn btn--ghost" href="#results">See results</a>
+        <a class="btn btn--primary" href="#contact">Apply for a Pilot</a>
+        <a class="btn btn--ghost" href="#results">See Benchmarks</a>
       </div>
       <div class="hero__meta">
         <span>Proxy-first</span>
         <span>No model changes</span>
+        <span>No retraining</span>
         <span>Self-hosted</span>
-        <span>Exact-match reuse</span>
+        <span>Ollama / vLLM / OpenAI-compatible APIs</span>
       </div>
     </div>
   </header>
@@ -40,12 +42,12 @@
     <section class="section section--stats" id="stats">
       <div class="metrics">
         <article class="metric">
-          <span class="metric__label">Support / ops</span>
+          <span class="metric__label">Customer support</span>
           <span class="metric__value">+660.95%</span>
           <div class="metric__sub">TPS uplift</div>
         </article>
         <article class="metric">
-          <span class="metric__label">Support / ops</span>
+          <span class="metric__label">Customer support</span>
           <span class="metric__value">-86.91%</span>
           <div class="metric__sub">TTFT improvement</div>
         </article>
@@ -68,42 +70,72 @@
     <section class="section" id="problem">
       <div class="section__heading">
         <span class="section__eyebrow">Problem</span>
-        <h2>Repeat requests still pay full inference cost.</h2>
+        <h2>Many AI systems pay full price for repeated work.</h2>
       </div>
       <div class="grid grid--2">
         <article class="panel">
           <p>
-            Support macros, API retries, parameterized requests, and workflow prompts repeat constantly.
-            Every duplicate request burns tokens, adds latency, and consumes backend capacity.
+            If your application receives repeated or template-like LLM requests, you may be spending time and
+            inference on work that does not need to be recomputed every time.
           </p>
         </article>
         <article class="panel panel--accent">
           <ul class="checklist">
-            <li>Exact-match replay avoids re-running the same request.</li>
-            <li>Cache eligibility keeps behavior predictable.</li>
-            <li>Private API and workflow traffic show the clearest reuse patterns.</li>
+            <li>Support and ops tools</li>
+            <li>Internal AI assistants and private API inference services</li>
+            <li>Workflow and agent systems with repeated prompts</li>
           </ul>
         </article>
       </div>
+      <p class="section__note">
+        ReuseAI helps you test whether that repeated traffic can be reused before committing to larger
+        infrastructure changes.
+      </p>
     </section>
 
     <section class="section" id="solution">
       <div class="section__heading">
         <span class="section__eyebrow">Solution</span>
-        <h2>Drop-in request-level cache / replay / reuse.</h2>
+        <h2>A lightweight layer in front of your existing LLM backend.</h2>
       </div>
-      <div class="grid grid--3">
+      <div class="grid grid--4">
         <article class="feature">
-          <h3>Fingerprint</h3>
-          <p>Build an exact-match cache key from model, prompt, system prompt, and request params.</p>
+          <h3>1. Put ReuseAI in front of one service</h3>
+          <p>Start with a single API path or workflow.</p>
         </article>
         <article class="feature">
-          <h3>Replay</h3>
-          <p>Return cached responses immediately when the same request repeats.</p>
+          <h3>2. Run real or replayed traffic</h3>
+          <p>Measure whether your workload has enough repetition to benefit.</p>
         </article>
         <article class="feature">
-          <h3>Eligibility</h3>
-          <p>Use cacheability policy, TTL, and invalidation to keep behavior predictable.</p>
+          <h3>3. Compare the impact</h3>
+          <p>Look at hit ratio, TTFT, throughput, and rollout fit.</p>
+        </article>
+        <article class="feature">
+          <h3>4. Decide whether to expand</h3>
+          <p>If the result is strong, move toward broader deployment.</p>
+        </article>
+      </div>
+      <p class="section__note">
+        ReuseAI is built as a proxy-first cache / replay layer in front of existing backends such as Ollama,
+        vLLM, or OpenAI-compatible APIs.
+      </p>
+    </section>
+
+    <section class="section" id="quickstart">
+      <div class="section__heading">
+        <span class="section__eyebrow">Quickstart</span>
+        <h2>Try it in minutes.</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="panel panel--accent">
+          <p class="mono mono--block">docker run -p 8080:8080 reuseai-response-cache-proxy</p>
+          <p>Then point your API to <code>http://localhost:8080</code>.</p>
+        </article>
+        <article class="panel">
+          <p>
+            That is enough to test whether repeated requests in your workload can be reused before a larger rollout.
+          </p>
         </article>
       </div>
     </section>
@@ -111,7 +143,7 @@
     <section class="section" id="results">
       <div class="section__heading">
         <span class="section__eyebrow">Results</span>
-        <h2>Real workloads, strong reuse.</h2>
+        <h2>Results on repeat-heavy workloads.</h2>
       </div>
       <div class="results-grid">
         <article class="result-card">
@@ -179,10 +211,10 @@
     <section class="section" id="users">
       <div class="section__heading">
         <span class="section__eyebrow">Best-fit users</span>
-        <h2>Who gets the first ROI.</h2>
+        <h2>Best fit for repeat-heavy AI systems.</h2>
       </div>
       <div class="grid grid--3">
-        <article class="persona">
+        <article class="persona persona--primary">
           <h3>Support / ops</h3>
           <p>Recurring ticket macros and triage flows with high prompt repetition.</p>
         </article>
@@ -190,9 +222,29 @@
           <h3>Private API teams</h3>
           <p>Parameter-heavy endpoints, retries, and workflow calls that repeat across bursts.</p>
         </article>
-        <article class="persona persona--primary">
+        <article class="persona">
           <h3>Workflow / orchestration</h3>
           <p>Repeated subprompts, retries, and scaffolded agent workflows.</p>
+        </article>
+      </div>
+      <div class="grid grid--2">
+        <article class="panel">
+          <h3>Good fit</h3>
+          <ul class="checklist">
+            <li>Support / ops tools</li>
+            <li>Private API inference services</li>
+            <li>Workflow / agent systems with repeated prompts</li>
+            <li>Template-heavy request patterns</li>
+            <li>Retry-heavy API workloads</li>
+          </ul>
+        </article>
+        <article class="panel panel--accent">
+          <h3>Not a fit</h3>
+          <ul class="checklist">
+            <li>Fully random chat</li>
+            <li>Highly variable prompts</li>
+            <li>Workloads with little or no repetition</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -200,7 +252,7 @@
     <section class="section" id="deployment">
       <div class="section__heading">
         <span class="section__eyebrow">Deployment</span>
-        <h2>Proxy-first, self-hosted, no model changes.</h2>
+        <h2>Built for low-friction evaluation.</h2>
       </div>
       <div class="grid grid--2">
         <article class="panel">
@@ -215,8 +267,31 @@
             Client &rarr; response cache proxy &rarr; Ollama / vLLM / PyTorch-backed API
           </p>
           <p>
-            This is an inference-side deduplication layer, not a model optimization or GPU acceleration project.
+            This is not a model optimization or GPU acceleration project. It is an inference-side deduplication layer.
           </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="pilot">
+      <div class="section__heading">
+        <span class="section__eyebrow">Pilot</span>
+        <h2>Start with a 2-week pilot.</h2>
+      </div>
+      <div class="grid grid--2">
+        <article class="panel">
+          <p>
+            You do not need a full migration to see whether ReuseAI is useful. Choose one service or workflow,
+            connect ReuseAI in front of it, run real or replayed traffic, and measure reuse potential and performance impact.
+          </p>
+        </article>
+        <article class="panel panel--accent">
+          <ul class="checklist">
+            <li>Fit assessment</li>
+            <li>Hit ratio summary</li>
+            <li>Latency / throughput comparison</li>
+            <li>Rollout recommendation</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -224,7 +299,7 @@
     <section class="section" id="contact">
       <div class="section__heading">
         <span class="section__eyebrow">Contact</span>
-        <h2>Get early access.</h2>
+        <h2>Find out whether your LLM traffic is worth reusing.</h2>
       </div>
       <div class="grid grid--2">
         <article class="panel">
