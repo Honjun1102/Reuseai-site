@@ -39,6 +39,14 @@ No model changes. No retraining. No kernel work.
    UPSTREAM_BASE_URL=http://host.docker.internal:11434
    ```
 
+## Pilot
+
+Start with one service or workflow. Route real or replayed traffic through
+ReuseAI, measure hit ratio / TTFT / throughput impact, and decide whether a
+broader rollout is worth it.
+
+For pilot inquiries: honjun@tju.edu.cn
+
 ## Best fit
 
 - Support / ops tools
